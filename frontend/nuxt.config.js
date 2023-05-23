@@ -59,7 +59,7 @@ export default {
       callback: '/',
       home: '/'
     },
-    localStorage: false,
+    localStorage: true,
     resetOnError: true,
     strategies: {
       local: {
