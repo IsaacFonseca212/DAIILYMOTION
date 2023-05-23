@@ -12,3 +12,4 @@ export default {
   layout: 'welcome'
 }
 </script>
+
