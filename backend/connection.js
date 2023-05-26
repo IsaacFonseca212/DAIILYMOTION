@@ -342,9 +342,38 @@ appVideos.post('/info', async (req, res) => {
   }
 })
 
+// Get the list of videos by category
+appVideos.post('/category', async (req, res) => {
+  try {
+    const { category } = req.body
+    const videos = collection(dbVideos, "videos")
+    const array = await getDocs(videos)
+    let returnData = []
+    array.forEach(video => {
+      if(video.data().category === category) {
+        const videoData = video.data()
+        const videoId = video.id
+        const videoWithId = { ...videoData, id: videoId }
+        returnData.push(videoWithId)
+      }
+    }) 
+    res.json({
+      'alert': 'Success',
+      'data': returnData
+    })
+    return returnData
+  } catch (error) {
+    console.error('Error retrieving data:', error)
+    res.status(500).json({
+      alert: 'Error',
+      message: 'An error occurred while retrieving videos data'
+    })
+  }
+})
+
 
 // Listening PORT
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 10000
 const PUERTO = process.env.PUERTO || 12000
 
 // Start server
