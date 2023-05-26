@@ -3,11 +3,12 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  store: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '',
-    title: 'daiilymotion',
+    title: 'Daiilymotion',
     htmlAttrs: {
       lang: 'en'
     },
@@ -59,7 +60,7 @@ export default {
       callback: '/',
       home: '/'
     },
-    localStorage: false,
+    localStorage: true,
     resetOnError: true,
     strategies: {
       local: {
@@ -87,14 +88,19 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'process.env.API'
+    baseURL: process.env.API,
+    servers: {
+      videos: {
+        baseURL: process.env.APP
+      }
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,
