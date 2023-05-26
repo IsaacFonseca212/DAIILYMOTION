@@ -10,26 +10,24 @@
       </div>
       <div class="bar-col-2">
         <div class="btn-1">
-          <v-btn class="buttons">
+          <v-btn class="buttons" @click="loginRed">
             Login
           </v-btn>
         </div>
         <div class="btn-2">
-          <v-btn class="buttons">
-            Sign-up
+          <v-btn class="buttons" @click="subscribeRed">
+            Subscribe
           </v-btn>
         </div>
       </div>
     </v-row>
     <v-row class="content">
-      <v-row class="content-ahorra" style="width:100%; height: 75%; margin: 0;">
-        <div class="content-img" style="width:100%; height: 100%; margin: 0;">
-          <v-img :src="require('@/assets/images/ahorra.avif')" class="content-v-img" />
-        </div>
+      <v-row style="width:100%; height: 75%; margin: 0; align-items: center; justify-content: center;">
+        <img src="@/assets/images/ahorra.avif" class="content-v-img">
       </v-row>
       <v-row class="but">
         <v-row style="width: 100%; height: 100%; display: flex; justify-content: center;">
-          <v-btn class="bot" style="background-color: #7B2ABF!important;">
+          <v-btn class="bot" style="background-color: #7B2ABF!important;" @click="subscribeRed">
             Subscribe now
           </v-btn>
         </v-row>
@@ -37,6 +35,19 @@
     </v-row>
   </v-row>
 </template>
+
+<script>
+export default {
+  methods: {
+    loginRed () {
+      this.$router.push('/login')
+    },
+    subscribeRed () {
+      this.$router.push('/subscribe')
+    }
+  }
+}
+</script></script>
 
 <style scoped>
 .principal{
@@ -53,7 +64,7 @@
 }
 
 .content-v-img{
-width: 50%
+width: 50%;
 }
 
 .bar-col-2{
