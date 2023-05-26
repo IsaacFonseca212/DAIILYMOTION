@@ -1,31 +1,120 @@
 <template>
   <v-row class="principal">
     <v-row class="bar">
-      <v-column>
-        <v-card-title class="title">
-          Daiilymotion
-        </v-card-title>
-      </v-column>
-      <v-column class="buttons-c" style="height: 100%; width: 80%;">
-        <v-btn class="buttons">
-          Login
-        </v-btn>
-        <v-btn class="buttons">
-          Sign-up
-        </v-btn>
-      </v-column>
+      <div class="bar-col-1">
+        <div style="color: white">
+          <v-card-title>
+            Daiilymotion
+          </v-card-title>
+        </div>
+      </div>
+      <div class="bar-col-2">
+        <div class="btn-1">
+          <v-btn class="buttons" @click="loginRed">
+            Login
+          </v-btn>
+        </div>
+        <div class="btn-2">
+          <v-btn class="buttons" @click="subscribeRed">
+            Subscribe
+          </v-btn>
+        </div>
+      </div>
     </v-row>
-    <div class="jaja">
-      <v-column class="img">
-        <v-row>
-          <v-img src="https://i.pinimg.com/originals/2a/58/b4/2a58b48c56301155ae0bf5572d23a1f0.gif" />
-        </v-row>
-      </v-column>
-      <v-row>
-        <v-btn class="btn">
-          Registrarse
-        </v-btn>
+    <v-row class="content">
+      <v-row style="width:100%; height: 75%; margin: 0; align-items: center; justify-content: center;">
+        <img src="@/assets/images/ahorra.avif" class="content-v-img">
       </v-row>
-    </div>
+      <v-row class="but">
+        <v-row style="width: 100%; height: 100%; display: flex; justify-content: center;">
+          <v-btn class="bot" style="background-color: #7B2ABF!important;" @click="subscribeRed">
+            Subscribe now
+          </v-btn>
+        </v-row>
+      </v-row>
+    </v-row>
   </v-row>
 </template>
+
+<script>
+export default {
+  methods: {
+    loginRed () {
+      this.$router.push('/login')
+    },
+    subscribeRed () {
+      this.$router.push('/subscribe')
+    }
+  }
+}
+</script></script>
+
+<style scoped>
+.principal{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  /* background-color: white; */
+  background-color: #02021C;
+}
+
+.bar-col-1{
+  width: 70%;
+  height: 100%;
+}
+
+.content-v-img{
+width: 50%;
+}
+
+.bar-col-2{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.btn-1{
+  margin-top: 4%;
+}
+
+.btn-2{
+  margin-top: 4%;
+  margin-left: 5%;
+  margin-right: 5%
+}
+.bar{
+  margin: 0%!important;
+  width: 100%;
+  height: 10%;
+}
+
+.bot{
+  background-color: #7B24D7;
+}
+
+.but{
+  margin: 0;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.content{
+  width: 100%;
+  height: 90%;
+  background-image: url('~@/assets/images/background.gif');
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+.buttons{
+background-color: #A354A2!important;
+}
+
+</style>
