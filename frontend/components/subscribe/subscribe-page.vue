@@ -1,86 +1,178 @@
 <template>
   <v-row class="principal" style="margin:0">
-    <v-row class="row-bar" style="margin:0">
-      <v-col class="row-bar-title">
-        <div class="div-bar-title">
-          <v-card-title>
-            Daiilymotion
-          </v-card-title>
-        </div>
-      </v-col>
-      <v-col class="btn">
-        <div class="col-btn">
-          <v-btn>
-            login
-          </v-btn>
-        </div>
-      </v-col>
-    </v-row>
-    <v-row style="width: 100%; margin:0">
-      <v-row style="display: flex; justify-content: center; margin:0">
-        <v-col cols="12" style="width: 100%">
-          <v-card-title style="display: flex; justify-content: center;">
-            Elige tu paquete
-          </v-card-title>
-        </v-col>
+    <v-row style="width: 100%; margin: 0!important; height:5%; display: flex; align-content: center;">
+      <v-row style="display: flex; justify-content: center; margin: 0px!important; margin-top: 1%; align-content: center; height: 80%;">
+        <span style="display: flex; justify-content: center; align-content: center;">
+          STEP 1 OF 3
+        </span>
       </v-row>
     </v-row>
-    <v-row style="width: 100%; margin:0">
-      <v-row style="display: flex; justify-content: center; margin:0">
-        <v-col cols="12" style="width: 100%">
-          <v-card-title style="display: flex; justify-content: center;">
-            Información adicional
-          </v-card-title>
-        </v-col>
+    <v-row style="width: 100%; margin:0; height:10%; display: flex; justify-content: center; align-content: center;">
+      <v-row style=" width: 100%; height: 100%; display: flex; justify-content: center; margin:0">
+        <div>
+          <h1 style="display: flex; justify-content: center;">
+            Choose your plan
+          </h1>
+          <span>Access a library of great entertainment, wherever you are.</span>
+        </div>
       </v-row>
     </v-row>
-    <v-row style="width: 100%; display: flex; justify-content: space-around; margin: 0">
-      <v-col cols="4" style="background-color: cadetblue; height: 450px; width: 30%;">
-        <v-banner outlined>
-          <v-btn>
-            Empieza ahora
-          </v-btn>
-        </v-banner>
-      </v-col>
-      <v-col cols="4" style="background-color: cadetblue; height: 450px; width: 30%;">
+    <v-row style="width: 95%; height:80%; display: flex; justify-content: space-around; margin:0; align-content: center;">
+      <v-col cols="4" style="height: 85%; width: 30%;">
         <div class="banner">
-          <v-card class="card-bno">
-            <v-col class>
+          <v-card elevation="24" outlinedstyle style="background-color: transparent; height: 100%">
+            <div class="v-card-title">
               <v-card-title class="card">
-                6 meses
+                1  month
               </v-card-title>
-            </v-col>
-            <v-card-subtitle>
-              7 meses
-            </v-card-subtitle>
-            <v-btn>
-              Empieza ahora
-            </v-btn>
+            </div>
+            <div class="v-card-price">
+              <v-card-title style="display: flex; justify-content: center;">
+                $179.00 mxn
+              </v-card-title>
+            </div>
+            <div class="v-card-info">
+              <ul>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+              </ul>
+            </div>
+            <div class="v-card-btn">
+              <v-btn class="button">
+                Choose this plan
+              </v-btn>
+            </div>
           </v-card>
         </div>
       </v-col>
-      <v-col cols="4" style="background-color: cadetblue; height: 450px; width: 30%;">
-        <v-banner outlined>
-          <v-btn>
-            Empieza ahora
-          </v-btn>
-        </v-banner>
+      <v-col cols="4" style="height: 85%; width: 30%;">
+        <div class="banner">
+          <v-card elevation="24" outlinedstyle style="background-color: transparent; height: 100%">
+            <div class="v-card-title">
+              <v-card-title class="card">
+                6 months
+              </v-card-title>
+            </div>
+            <div class="v-card-price">
+              <v-card-title style="display: flex; justify-content: center;">
+                $399.00 mxn
+              </v-card-title>
+            </div>
+            <div class="v-card-info">
+              <ul>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+              </ul>
+            </div>
+            <div class="v-card-btn">
+              <v-btn class="button">
+                Choose this plan
+              </v-btn>
+            </div>
+          </v-card>
+        </div>
       </v-col>
+      <v-col cols="4" style="height: 85%; width: 30%;">
+        <div class="banner">
+          <v-card elevation="24" outlinedstyle style="background-color: transparent; height: 100%">
+            <div class="v-card-title">
+              <v-card-title class="card">
+                12 months
+              </v-card-title>
+            </div>
+            <div class="v-card-price">
+              <v-card-title style="display: flex; justify-content: center;">
+                $1,249.00 mxn
+              </v-card-title>
+            </div>
+            <div class="v-card-info">
+              <ul>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+                <li>yo</li>
+              </ul>
+            </div>
+            <div class="v-card-btn">
+              <v-btn class="button">
+                Choose this plan
+              </v-btn>
+            </div>
+          </v-card>
+        </div>
+      </v-col>
+    </v-row>
+    <v-row style="width: 95%; height:5%; display: flex; justify-content: space-around; margin:0; align-content: center;">
+      <div style="width: 100%; height: 100%; display: flex; justify-content: center; margin-bottom: 4%;">
+        <span>
+          Already have an account?
+          <router-link to="/login">
+            Login
+          </router-link>
+        </span>
+      </div>
     </v-row>
   </v-row>
 </template>
 
+<!-- <script>
+export default {
+  methods: {
+    loginRed () {
+      this.$router.push('/login')
+    }
+  }
+}
+</script> -->
+
   <style scoped>
   .principal{
     width: 100%;
-    height: 100%;
-    /* background-color: saddlebrown; */
-  }
-  .btn{
+    height: inherit;
     display: flex;
-    justify-content: flex-end;
-    padding-right: 2%;
-    padding-top: 2%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('~@/assets/images/purple-gradient.jpg');
+    background-attachment: fixed;
+    margin-top: 20px;
+  }
+  .button{
+    background-color: #7B2ABF!important;
+  }
+
+  .v-card-title{
+    width: 100%;
+    height: 10%;
+  }
+
+  .v-card-price{
+    width: 100%;
+    height: 10%;
+
+  }
+
+  .v-card-info{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-left: 10%;
+  }
+
+  .v-card-btn{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
   }
 
   .col-btn{
@@ -107,13 +199,14 @@
   .card{
     display: flex;
     justify-content: center;
+    font-size: 170%;
   }
 
   .bn{
     width:100%
   }
 
-  .banner{
+    .banner{
     width: 100%;
     height: 100%;
   }
@@ -123,3 +216,9 @@
   }
 
   </style>
+
+<!-- 3 dispositivos
+1 dispositivo a la vez
+Max resolution -
+3 profiles
+tablet & smartphone -->

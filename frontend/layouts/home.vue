@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'MainP'
+  name: 'Home'
 }
 </script>
 

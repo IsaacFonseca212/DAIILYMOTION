@@ -278,11 +278,11 @@ appVideos.post('/insert', (req, res) => {
   addDoc(videos, sendData).then(() => {
     res.json({
       'alert': 'success'
-    }).catch((err) => {
-        res.json({
-          'alert': err
-        })
     })
+    }).catch((err) => {
+      res.json({
+        'alert': err
+      })
   })
 })
 
