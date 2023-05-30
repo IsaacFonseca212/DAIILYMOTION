@@ -1,6 +1,6 @@
 <template>
   <div class="head">
-    Daiilymotion
+    DAIILYMOTION
   </div>
 </template>
 

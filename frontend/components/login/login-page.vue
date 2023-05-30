@@ -27,10 +27,11 @@
             />
           </v-form>
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions style="justify-content: center;">
           <v-btn
-            class="rounded"
-            block
+            rounded
+            large
+            width="300"
             style="background-color: #7B2ABF!important;"
             @click="login"
           >
@@ -46,7 +47,7 @@
       </span>
       <span style="margin-top: 25px;">
         You do not have an account?
-        <router-link to="/subscribe/register">
+        <router-link to="/subscribe">
           Register
         </router-link>
       </span>
@@ -86,7 +87,7 @@ export default {
         config
       ).then(async (res) => {
         // eslint-disable-next-line no-console
-        console.log(await (res))
+        console.log('login', await (res))
         if (res.data.alert === 'Success') {
           this.setUser(userData)
           this.mensaje = ''

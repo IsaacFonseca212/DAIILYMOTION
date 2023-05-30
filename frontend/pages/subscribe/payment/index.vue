@@ -1,27 +1,27 @@
 <template>
   <div class="principal">
     <topBar />
-    <subscribePage />
+    <payMethod />
   </div>
 </template>
 
 <script>
-import subscribePage from '~/components/subscribe/subscribe-page.vue'
+import payMethod from '~/components/payment/payment-methods.vue'
 import topBar from '~/components/topbars/subscribe-bar.vue'
 export default {
   name: 'IndexPage',
   auth: false,
   components: {
-    subscribePage,
+    payMethod,
     topBar
   },
-  layout: 'subscribe'
+  layout: 'payment'
 }
 </script>
 
 <style scoped>
-.principal{
-  width: 100vw;
-  height: 100vh;
-}
+  .principal{
+    width: 100vw;
+    height: auto;
+  }
 </style>
