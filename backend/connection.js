@@ -277,7 +277,7 @@ appVideos.post('/insert', (req, res) => {
     res.json({
       'alert': 'success'
     })
-  }).catch((err) => {
+    }).catch((err) => {
       res.json({
         'alert': err
       })

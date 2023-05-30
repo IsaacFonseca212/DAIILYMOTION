@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="image">
     <v-row class="display">
       <Nuxt />
     </v-row>
@@ -14,11 +14,17 @@ export default {
 
 <style scoped>
 .display{
-  width: 100vw!important;
-  height: 100vh!important;
-  display: flex;
-  flex: none;
-  background-color: green;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+.image{
+    background-image: url('~@/assets/images/purple-gradient.jpg');
+    background-attachment: fixed;
 }
 
 </style>
