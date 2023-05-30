@@ -74,10 +74,11 @@
             />
           </v-form>
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions style="justify-content: center;">
           <v-btn
-            class="rounded"
-            block
+            rounded
+            large
+            width="300"
             style="background-color: #7B2ABF!important;"
             @click="register"
           >
@@ -103,7 +104,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   data () {
@@ -123,9 +124,6 @@ export default {
       mensaje: ''
     }
   },
-  computed: {
-    ...mapGetters(['getUser'])
-  },
   methods: {
     ...mapMutations(['setUser']),
     async register () {
@@ -137,7 +135,6 @@ export default {
       }
       if (this.email !== this.confEmail) {
         this.mensaje = 'The email addresses do not match'
-        // console.log('user:', this.getUser.email)
       } else {
         const userData = {
           name: this.name,
@@ -151,7 +148,7 @@ export default {
           config
         ).then(async (res) => {
         // eslint-disable-next-line no-console
-          console.log(await (res))
+          console.log('insert', await (res))
           if (res.data.alert === 'Success') {
             this.setUser(userData)
             this.mensaje = ''

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="background-color: #212529">
     <v-row class="display">
       <Nuxt />
     </v-row>
@@ -14,10 +14,11 @@ export default {
 
   <style scoped>
   .display{
-    width: 100vw!important;
-    height: 100vh!important;
+    width: 100vw;
+    height: auto;
     display: flex;
     flex: none;
+    background-color: #212529;
   }
 
   </style>

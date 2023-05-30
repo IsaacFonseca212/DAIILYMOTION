@@ -175,7 +175,7 @@ appUsers.post('/user', async (req, res) => {
   } catch (error) {
     console.error('Error retrieving user:', error)
     res.status(500).json({
-      alert: 'Error',
+      alert: 'Retrieve error',
       message: 'An error occurred while retrieving user data'
     })
   }
@@ -195,8 +195,6 @@ appUsers.post('/delete', async (req, res) => {
       })
       return // Detener la ejecución de la función si el usuario no existe
     }
-
-    console.log('user deleted: ', user, email)
     await deleteDoc(user)
     res.json({
       'alert': 'User deleted'
@@ -204,7 +202,7 @@ appUsers.post('/delete', async (req, res) => {
   } catch (error) {
     console.error('Error deleting user:', error)
     res.status(500).json({
-      alert: 'Error',
+      alert: 'Delete error',
       message: 'An error occurred while deleting user'
     })
   }
@@ -232,7 +230,7 @@ appUsers.post('/update', async (req, res) => {
         age
       }
 
-      updateDoc(doc(dbUsers, "users", email), dataUpdate).then((response) => {
+      updateDoc(doc(dbUsers, "users", email), dataUpdate).then(() => {
         res.json({
           'alert': 'Success'
         })
@@ -245,7 +243,7 @@ appUsers.post('/update', async (req, res) => {
   } catch (error) {
     console.error('Error updating user:', error)
     res.status(500).json({
-      alert: 'Error',
+      alert: 'Update error',
       message: 'An error occurred while updating user data'
     })
   }
@@ -336,7 +334,7 @@ appVideos.post('/info', async (req, res) => {
   } catch (error) {
     console.error('Error retrieving video:', error)
     res.status(500).json({
-      alert: 'Error',
+      alert: 'Data error',
       message: 'An error occurred while retrieving video data'
     })
   }

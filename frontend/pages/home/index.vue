@@ -1,23 +1,27 @@
 <template>
-  <!-- <div class="principal"> -->
-  <mainPage />
-  <!-- </div> -->
+  <div class="principal">
+    <searchBar />
+    <mainPage />
+  </div>
 </template>
 
 <script>
 import mainPage from '~/components/home/home-page.vue'
+import searchBar from '~/components/topbars/navigation-bar.vue'
 export default {
   name: 'IndexPage',
+  auth: false,
   components: {
-    mainPage
+    mainPage,
+    searchBar
   },
   layout: 'home'
 }
 </script>
 
 <style scoped>
-/* .principal{
+.principal{
   width: 100vw;
-  height: 100vh;
-} */
+  height: auto;
+}
 </style>

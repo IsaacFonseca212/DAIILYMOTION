@@ -1,21 +1,21 @@
 <template>
   <div class="principal">
     <topBar />
-    <loginPage />
+    <editProfile />
   </div>
 </template>
 
 <script>
-import topBar from '~/components/topbars/subscribe-bar.vue'
-import loginPage from '~/components/login/login-page.vue'
+import topBar from '~/components/topbars/navigation-bar.vue'
+import editProfile from '~/components/profile/edit-prof.vue'
 export default {
   name: 'IndexPage',
   auth: false,
   components: {
-    loginPage,
+    editProfile,
     topBar
   },
-  layout: 'login'
+  layout: 'profile'
 }
 </script>
 
