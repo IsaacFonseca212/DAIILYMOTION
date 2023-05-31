@@ -57,22 +57,22 @@
         </div>
         <div class="videos-mostrados">
           <v-container>
-            <v-row v-if="videom && videom.length > 0" dense>
+            <v-row v-if="videoM && videoM.length > 0" dense>
               <v-col v-for="i in 4" :key="i" cols="12">
-                <v-card @click="playVid(videom[i].id)">
+                <v-card @click="playVid(videoM[i].id)">
                   <div class="d-flex flex-no-wrap justify-space-between">
                     <v-avatar class="ma-3" size="400" tile>
-                      <v-img :src="videom[i].image" />
+                      <v-img :src="videoM[i].image" />
                     </v-avatar>
                     <div>
                       <v-card-title class="text-h5">
-                        {{ videom[i].title }}
+                        {{ videoM[i].title }}
                       </v-card-title>
                       <div>
                         <v-avatar size="10">
-                          <v-img :src="videom[i].channel_img" />
+                          <v-img :src="videoM[i].channel_img" />
                         </v-avatar>
-                        <v-card-subtitle> {{ videom[i].chanel_name }} </v-card-subtitle>
+                        <v-card-subtitle> {{ videoM[i].chanel_name }} </v-card-subtitle>
                       </div>
                     </div>
                   </div>
@@ -91,38 +91,50 @@ import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      videom: [],
+      videoM: [],
+      videoFt: [],
+      videoNew: [],
+      videoSp: [],
+      videoEnt: [],
       category: ''
     }
   },
   mounted () {
-    this.loadVideoMusic()
-    this.loadVideoFeat()
-    this.loadVideoNews()
-    this.loadVideoSports()
-    this.loadVideoEntert()
+    this.loadData()
   },
   methods: {
     ...mapMutations(['setVideoId']),
-    loadVideoMusic () {
+    async loadData () {
+      await this.loadvideoMusic()
+      await this.loadVideoFeat()
+      await this.loadVideoNews()
+      await this.loadVideoSports()
+      await this.loadVideoEntert()
+    },
+    async loadvideoMusic () {
       this.category = 'music'
-      this.loadVideos()
+      await this.loadVideos()
+      console.log('videosm:', this.videoM)
     },
-    loadVideoFeat () {
+    async loadVideoFeat () {
       this.category = 'featured'
-      this.loadVideos()
+      await this.loadVideos()
+      console.log('videosft:', this.videoFt)
     },
-    loadVideoNews () {
+    async loadVideoNews () {
       this.category = 'news'
-      this.loadVideos()
+      await this.loadVideos()
+      console.log('videosNews:', this.videoNew)
     },
-    loadVideoSports () {
+    async loadVideoSports () {
       this.category = 'sports'
-      this.loadVideos()
+      await this.loadVideos()
+      console.log('videosSp:', this.videoSp)
     },
-    loadVideoEntert () {
+    async loadVideoEntert () {
       this.category = 'entertainment'
-      this.loadVideos()
+      await this.loadVideos()
+      console.log('videosEnt:', this.videoEnt)
     },
     async loadVideos () {
       const config = {
@@ -136,9 +148,19 @@ export default {
       }
       await this.$axios.post(process.env.APP + '/category', Categ, config).then(async (res) => {
         // eslint-disable-next-line no-console
-        console.log('music', await (res))
+        console.log(this.category, await (res))
         if (res.data.alert === 'Success') {
-          this.videom = res.data.data
+          if (this.category === 'music') {
+            this.videoM = res.data.data
+          } else if (this.category === 'featured') {
+            this.videoFt = res.data.data
+          } else if (this.category === 'news') {
+            this.videoNew = res.data.data
+          } else if (this.category === 'sports') {
+            this.videoSp = res.data.data
+          } else if (this.category === 'entertainment') {
+            this.videoEnt = res.data.data
+          }
         }
       }).catch((error) => {
         // eslint-disable-next-line no-console
