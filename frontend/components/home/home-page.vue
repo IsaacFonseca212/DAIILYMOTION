@@ -91,15 +91,40 @@ import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      videom: []
+      videom: [],
+      category: ''
     }
   },
   mounted () {
     this.loadVideoMusic()
+    this.loadVideoFeat()
+    this.loadVideoNews()
+    this.loadVideoSports()
+    this.loadVideoEntert()
   },
   methods: {
     ...mapMutations(['setVideoId']),
-    async loadVideoMusic () {
+    loadVideoMusic () {
+      this.category = 'music'
+      this.loadVideos()
+    },
+    loadVideoFeat () {
+      this.category = 'featured'
+      this.loadVideos()
+    },
+    loadVideoNews () {
+      this.category = 'news'
+      this.loadVideos()
+    },
+    loadVideoSports () {
+      this.category = 'sports'
+      this.loadVideos()
+    },
+    loadVideoEntert () {
+      this.category = 'entertainment'
+      this.loadVideos()
+    },
+    async loadVideos () {
       const config = {
         headers: {
           'Content-Type': 'application/json;charset=UTF-8',
@@ -107,7 +132,7 @@ export default {
         }
       }
       const Categ = {
-        category: 'music'
+        category: this.category
       }
       await this.$axios.post(process.env.APP + '/category', Categ, config).then(async (res) => {
         // eslint-disable-next-line no-console
