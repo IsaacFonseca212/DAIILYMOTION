@@ -14,6 +14,24 @@
   </v-row>
 </template>
 
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  data () {
+    return {
+      videoId: ''
+    }
+  },
+  computed: {
+    ...mapGetters(['getVideoID'])
+  },
+  mounted () {
+    this.videoId = this.getVideoID
+    console.log('video:', this.videoId)
+  }
+}
+</script>
+
 <style scoped>
 .principal{
   width: 100%;

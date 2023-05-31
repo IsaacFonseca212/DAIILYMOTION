@@ -57,22 +57,22 @@
         </div>
         <div class="videos-mostrados">
           <v-container>
-            <v-row dense>
-              <v-col v-for="(video, i) in videom" :key="i" cols="12">
-                <v-card>
+            <v-row v-if="videom && videom.length > 0" dense>
+              <v-col v-for="i in 4" :key="i" cols="12">
+                <v-card @click="playVid(videom[i].id)">
                   <div class="d-flex flex-no-wrap justify-space-between">
                     <v-avatar class="ma-3" size="400" tile>
-                      <v-img :src="video.image" />
+                      <v-img :src="videom[i].image" />
                     </v-avatar>
                     <div>
                       <v-card-title class="text-h5">
-                        {{ video.title }}
+                        {{ videom[i].title }}
                       </v-card-title>
                       <div>
                         <v-avatar size="10">
-                          <v-img :src="video.channel_img" />
+                          <v-img :src="videom[i].channel_img" />
                         </v-avatar>
-                        <v-card-subtitle> {{ video.chanel_name }} </v-card-subtitle>
+                        <v-card-subtitle> {{ videom[i].chanel_name }} </v-card-subtitle>
                       </div>
                     </div>
                   </div>
@@ -87,20 +87,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 export default {
   data () {
     return {
       videom: []
     }
   },
-  computed: {
-    ...mapGetters(['getVideoId'])
-  },
   mounted () {
     this.loadVideoMusic()
   },
   methods: {
+    ...mapMutations(['setVideoId']),
     async loadVideoMusic () {
       const config = {
         headers: {
@@ -111,7 +109,7 @@ export default {
       const Categ = {
         category: 'music'
       }
-      await this.$axios.videos.post('/category', Categ, config).then(async (res) => {
+      await this.$axios.post(process.env.APP + '/category', Categ, config).then(async (res) => {
         // eslint-disable-next-line no-console
         console.log('music', await (res))
         if (res.data.alert === 'Success') {
@@ -121,6 +119,10 @@ export default {
         // eslint-disable-next-line no-console
         console.error(error)
       })
+    },
+    playVid (videoId) {
+      this.setVideoId(videoId)
+      this.$router.push('home/player')
     }
   }
 }
