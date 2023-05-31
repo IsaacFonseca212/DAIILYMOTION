@@ -24,29 +24,130 @@
         <div class="nombre-categoria-padre">
           <h1>Featured</h1>
           <h4>Top Stories</h4>
+          <hr style="width:95%">
         </div>
-        <div class="videos-mostrados" />
+        <div class="videos-mostrados">
+          <v-container style="margin-left: 0!important">
+            <v-row v-if="videoFt && videoFt.length > 0" dense>
+              <v-col v-for="i in 4" :key="i" cols="12">
+                <v-card @click="playVid(videoFt[i].id)">
+                  <div class="d-flex flex-no-wrap">
+                    <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
+                      <v-img :src="videoFt[i].image" />
+                    </v-avatar>
+                    <div>
+                      <v-card-title class="text-h5">
+                        {{ videoFt[i].title }}
+                      </v-card-title>
+                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="10">
+                          <v-img :src="videoFt[i].channel_img" />
+                        </v-avatar>
+                        <v-card-subtitle> {{ videoFt[i].chanel_name }} </v-card-subtitle>
+                      </div>
+                    </div>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
           <h1>News</h1>
           <h4>In focus</h4>
         </div>
-        <div class="videos-mostrados" />
+        <div class="videos-mostrados">
+          <v-container>
+            <v-row v-if="videoNew && videoNew.length > 0" dense>
+              <v-col v-for="i in 4" :key="i" cols="12">
+                <v-card @click="playVid(videoNew[i].id)">
+                  <div class="d-flex flex-no-wrap justify-space-between">
+                    <v-avatar class="ma-3" size="400" tile>
+                      <v-img :src="videoNew[i].image" />
+                    </v-avatar>
+                    <div>
+                      <v-card-title class="text-h5">
+                        {{ videoNew[i].title }}
+                      </v-card-title>
+                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="10">
+                          <v-img :src="videoNew[i].channel_img" />
+                        </v-avatar>
+                        <v-card-subtitle> {{ videoNew[i].chanel_name }} </v-card-subtitle>
+                      </div>
+                    </div>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
           <h1>Sports</h1>
           <h4>Top sports moments</h4>
         </div>
-        <div class="videos-mostrados" />
+        <div class="videos-mostrados">
+          <v-container>
+            <v-row v-if="videoSp && videoSp.length > 0" dense>
+              <v-col v-for="i in 4" :key="i" cols="12">
+                <v-card @click="playVid(videoSp[i].id)">
+                  <div class="d-flex flex-no-wrap justify-space-between">
+                    <v-avatar class="ma-3" size="400" tile>
+                      <v-img :src="videoSp[i].image" />
+                    </v-avatar>
+                    <div>
+                      <v-card-title class="text-h5">
+                        {{ videoSp[i].title }}
+                      </v-card-title>
+                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="10">
+                          <v-img :src="videoSp[i].channel_img" />
+                        </v-avatar>
+                        <v-card-subtitle> {{ videoSp[i].chanel_name }} </v-card-subtitle>
+                      </div>
+                    </div>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
           <h1>Entertainment</h1>
           <h4>In the spotlight</h4>
         </div>
-        <div class="videos-mostrados" />
+        <div class="videos-mostrados">
+          <v-container>
+            <v-row v-if="videoEnt && videoEnt.length > 0" dense>
+              <v-col v-for="i in 4" :key="i" cols="12">
+                <v-card @click="playVid(videoEnt[i].id)">
+                  <div class="d-flex flex-no-wrap justify-space-between">
+                    <v-avatar class="ma-3" size="400" tile>
+                      <v-img :src="videoEnt[i].image"/>
+                    </v-avatar>
+                    <div>
+                      <v-card-title class="text-h5">
+                        {{ videoEnt[i].title }}
+                      </v-card-title>
+                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="10">
+                          <v-img :src="videoEnt[i].channel_img" />
+                        </v-avatar>
+                        <v-card-subtitle> {{ videoEnt[i].chanel_name }} </v-card-subtitle>
+                      </div>
+                    </div>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </div>
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
@@ -68,7 +169,7 @@
                       <v-card-title class="text-h5">
                         {{ videoM[i].title }}
                       </v-card-title>
-                      <div>
+                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
                         <v-avatar size="10">
                           <v-img :src="videoM[i].channel_img" />
                         </v-avatar>
@@ -199,6 +300,7 @@ export default {
   width: 100%;
   height: auto;
   margin: 0;
+  margin-top: 40px;
 }
 
 .div-row-categorias{
