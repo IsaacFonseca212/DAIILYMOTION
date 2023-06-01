@@ -3,26 +3,38 @@
     <v-row class="row-categorias">
       <div class="div-row-categorias">
         <div class="categoria">
-          <h2>Featured</h2>
+          <h2 @click="scrollInto('element1')">
+            Featured
+          </h2>
         </div>
         <div class="categoria">
-          <h2>News</h2>
+          <h2 @click="scrollInto('element2')">
+            News
+          </h2>
         </div>
         <div class="categoria">
-          <h2>Sports</h2>
+          <h2 @click="scrollInto('element3')">
+            Sports
+          </h2>
         </div>
         <div class="categoria">
-          <h2>Entertainment</h2>
+          <h2 @click="scrollInto('element4')">
+            Entertainment
+          </h2>
         </div>
         <div class="categoria">
-          <h2>Music</h2>
+          <h2 @click="scrollInto('element5')">
+            Music
+          </h2>
         </div>
       </div>
     </v-row>
     <v-row class="row-contenido">
       <v-row class="videos">
         <div class="nombre-categoria-padre">
-          <h1>Featured</h1>
+          <h1 id="element1">
+            Featured
+          </h1>
           <h4>Top Stories</h4>
           <hr style="width:95%">
         </div>
@@ -34,13 +46,22 @@
                   <div class="d-flex flex-no-wrap">
                     <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoFt[i].image" />
+                      <h5
+                        style="
+                      position: relative;
+                      top: -40%;
+                      left: -94%;
+                      background-color: black;"
+                      >
+                        {{ videoFt[i].duration }}
+                      </h5>
                     </v-avatar>
                     <div>
                       <v-card-title class="text-h5">
                         {{ videoFt[i].title }}
                       </v-card-title>
                       <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar size="10">
+                        <v-avatar class="avatar-size">
                           <v-img :src="videoFt[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoFt[i].chanel_name }} </v-card-subtitle>
@@ -55,24 +76,36 @@
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
-          <h1>News</h1>
+          <h1 id="element2">
+            News
+          </h1>
           <h4>In focus</h4>
+          <hr style="width:95%">
         </div>
         <div class="videos-mostrados">
-          <v-container>
+          <v-container style="margin-left: 0!important">
             <v-row v-if="videoNew && videoNew.length > 0" dense>
               <v-col v-for="i in 4" :key="i" cols="12">
                 <v-card @click="playVid(videoNew[i].id)">
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <v-avatar class="ma-3" size="400" tile>
+                  <div class="d-flex flex-no-wrap">
+                    <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoNew[i].image" />
+                      <h5
+                        style="
+                      position: relative;
+                      top: -40%;
+                      left: -94%;
+                      background-color: black;"
+                      >
+                        {{ videoNew[i].duration }}
+                      </h5>
                     </v-avatar>
                     <div>
                       <v-card-title class="text-h5">
                         {{ videoNew[i].title }}
                       </v-card-title>
                       <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar size="10">
+                        <v-avatar class="avatar-size">
                           <v-img :src="videoNew[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoNew[i].chanel_name }} </v-card-subtitle>
@@ -87,24 +120,36 @@
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
-          <h1>Sports</h1>
+          <h1 id="element3">
+            Sports
+          </h1>
           <h4>Top sports moments</h4>
+          <hr style="width:95%">
         </div>
         <div class="videos-mostrados">
-          <v-container>
+          <v-container style="margin-left: 0!important">
             <v-row v-if="videoSp && videoSp.length > 0" dense>
               <v-col v-for="i in 4" :key="i" cols="12">
                 <v-card @click="playVid(videoSp[i].id)">
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <v-avatar class="ma-3" size="400" tile>
+                  <div class="d-flex flex-no-wrap">
+                    <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoSp[i].image" />
+                      <h5
+                        style="
+                      position: relative;
+                      top: -40%;
+                      left: -94%;
+                      background-color: black;"
+                      >
+                        {{ videoSp[i].duration }}
+                      </h5>
                     </v-avatar>
                     <div>
                       <v-card-title class="text-h5">
                         {{ videoSp[i].title }}
                       </v-card-title>
                       <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar size="10">
+                        <v-avatar class="avatar-size">
                           <v-img :src="videoSp[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoSp[i].chanel_name }} </v-card-subtitle>
@@ -119,17 +164,29 @@
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
-          <h1>Entertainment</h1>
+          <h1 id="element4">
+            Entertainment
+          </h1>
           <h4>In the spotlight</h4>
+          <hr style="width:95%">
         </div>
         <div class="videos-mostrados">
-          <v-container>
+          <v-container style="margin-left: 0!important">
             <v-row v-if="videoEnt && videoEnt.length > 0" dense>
               <v-col v-for="i in 4" :key="i" cols="12">
                 <v-card @click="playVid(videoEnt[i].id)">
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <v-avatar class="ma-3" size="400" tile>
-                      <v-img :src="videoEnt[i].image"/>
+                  <div class="d-flex flex-no-wrap">
+                    <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
+                      <v-img :src="videoEnt[i].image" />
+                      <h5
+                        style="
+                      position: relative;
+                      top: -40%;
+                      left: -94%;
+                      background-color: black;"
+                      >
+                        {{ videoSp[i].duration }}
+                      </h5>
                     </v-avatar>
                     <div>
                       <v-card-title class="text-h5">
@@ -151,19 +208,29 @@
       </v-row>
       <v-row class="videos">
         <div class="nombre-categoria-padre">
-          <h1>
+          <h1 id="element5">
             Music
           </h1>
           <h4>Top music</h4>
+          <hr style="width:95%">
         </div>
         <div class="videos-mostrados">
-          <v-container>
+          <v-container style="margin-left: 0!important">
             <v-row v-if="videoM && videoM.length > 0" dense>
               <v-col v-for="i in 4" :key="i" cols="12">
                 <v-card @click="playVid(videoM[i].id)">
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <v-avatar class="ma-3" size="400" tile>
+                  <div class="d-flex flex-no-wrap">
+                    <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoM[i].image" />
+                      <h5
+                        style="
+                      position: relative;
+                      top: -40%;
+                      left: -94%;
+                      background-color: black;"
+                      >
+                        {{ videoM[i].duration }}
+                      </h5>
                     </v-avatar>
                     <div>
                       <v-card-title class="text-h5">
@@ -215,27 +282,27 @@ export default {
     async loadvideoMusic () {
       this.category = 'music'
       await this.loadVideos()
-      console.log('videosm:', this.videoM)
+      // console.log('videosm:', this.videoM)
     },
     async loadVideoFeat () {
       this.category = 'featured'
       await this.loadVideos()
-      console.log('videosft:', this.videoFt)
+      // console.log('videosft:', this.videoFt)
     },
     async loadVideoNews () {
       this.category = 'news'
       await this.loadVideos()
-      console.log('videosNews:', this.videoNew)
+      // console.log('videosNews:', this.videoNew)
     },
     async loadVideoSports () {
       this.category = 'sports'
       await this.loadVideos()
-      console.log('videosSp:', this.videoSp)
+      // console.log('videosSp:', this.videoSp)
     },
     async loadVideoEntert () {
       this.category = 'entertainment'
       await this.loadVideos()
-      console.log('videosEnt:', this.videoEnt)
+      // console.log('videosEnt:', this.videoEnt)
     },
     async loadVideos () {
       const config = {
@@ -271,6 +338,12 @@ export default {
     playVid (videoId) {
       this.setVideoId(videoId)
       this.$router.push('/home/player')
+    },
+    scrollInto (elementId) {
+      const section = document.querySelector(`#${elementId}`)
+      section.scrollIntoView({
+        behavior: 'smooth'
+      })
     }
   }
 }
@@ -281,6 +354,17 @@ export default {
 .videos-mostrados{
   width: 100%;
   height: auto;
+}
+
+h2:hover {
+  cursor: pointer;
+  background-color: black;
+}
+
+.avatar-size{
+  height: 25px;
+  min-width: 25px;
+  width: 25px;
 }
 
 .nombre-categoria-padre{

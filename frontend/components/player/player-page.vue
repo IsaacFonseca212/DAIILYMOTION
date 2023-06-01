@@ -12,7 +12,6 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
             allowfullscreen
             sharing-enabled="false"
-            type="text/html"
           />
           <v-card-title>
             {{ video.title }}
