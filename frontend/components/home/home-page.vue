@@ -193,7 +193,7 @@
                         {{ videoEnt[i].title }}
                       </v-card-title>
                       <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar size="10">
+                        <v-avatar class="avatar-size">
                           <v-img :src="videoEnt[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoEnt[i].chanel_name }} </v-card-subtitle>
@@ -237,7 +237,7 @@
                         {{ videoM[i].title }}
                       </v-card-title>
                       <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar size="10">
+                        <v-avatar class="avatar-size">
                           <v-img :src="videoM[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoM[i].chanel_name }} </v-card-subtitle>
@@ -418,6 +418,10 @@ h2:hover {
   /* justify-content: center;
   align-content: center; */
   padding-left: 5%;
+}
+
+* {
+  word-break: normal
 }
 
 </style>

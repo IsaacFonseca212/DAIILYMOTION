@@ -2,10 +2,10 @@
   <v-row class="principal" style="margin: 0">
     <v-row class="row-player" style="margin: 0">
       <v-row class="reproductor" style="margin: 0">
-        <v-card v-if="video" class="mx-auto" max-width="100%">
+        <v-card v-if="video" class="mx-auto" style="margin: 0px; margin-top: 15px; width: 95%!important;">
           <iframe
             width="100%"
-            height="75%"
+            height="95%"
             :src="video.url"
             :title="video.title"
             frameborder="0"
@@ -16,14 +16,21 @@
           <v-card-title>
             {{ video.title }}
           </v-card-title>
-          <div display: style="display: flex; align-items: center; margin-left: 25px;">
-            <v-avatar size="10">
+          <div
+            display:
+            style="display: flex;
+                   align-items: center;
+                   margin-left: 25px;
+                   position: relative;
+                   top: -20px;"
+          >
+            <v-avatar style="height: 30px; width: 30px; min-width: 30px;">
               <v-img :src="video.channel_img" />
             </v-avatar>
             <v-card-subtitle> {{ video.chanel_name }} </v-card-subtitle>
           </div>
           <v-card-actions>
-            <v-btn text>
+            <v-btn text @click="show = !show">
               More details
             </v-btn>
             <v-spacer />
@@ -48,6 +55,15 @@
           <div class="d-flex flex-no-wrap justify-space-between">
             <v-avatar class="ma-3" size="100" tile>
               <v-img :src="videoSug[i].image" />
+              <h5
+                style="
+                      position: relative;
+                      top: -40%;
+                      left: -80%;
+                      background-color: black;"
+              >
+                {{ videoSug[i].duration }}
+              </h5>
             </v-avatar>
             <div>
               <v-card-title class="text-h5">
@@ -158,13 +174,15 @@ export default {
 .reproductor{
   width: 100%;
   height: 75%;
-  background-color:rgb(165, 126, 42);
+  margin-top: 15px;
 }
 
 .sugeridos{
   width:30%;
   height: 100%;
-  background-color: darkgreen;
 }
 
+* {
+  word-break: normal
+}
 </style>
