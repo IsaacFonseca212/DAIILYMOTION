@@ -2,7 +2,7 @@
   <v-row class="principal" style="margin: 0">
     <v-row class="row-player" style="margin: 0">
       <v-row class="reproductor" style="margin: 0">
-        <v-card v-if="video && video.length > 0" class="mx-auto" max-width="100%">
+        <v-card v-if="video" class="mx-auto" max-width="100%">
           <iframe
             width="100%"
             height="75%"
@@ -42,19 +42,42 @@
         </v-card>
       </v-row>
     </v-row>
-    <v-row class="sugeridos" style="margin: 0">
-      <h1>Aqui van los videos sugeridos</h1>
+    <v-row v-if="videoSug && videoSug.length > 0" class="sugeridos" style="margin: 0">
+      <v-col v-for="i in 19" :key="i" cols="12">
+        <v-card @click="playVid(videoSug[i].id)">
+          <div class="d-flex flex-no-wrap justify-space-between">
+            <v-avatar class="ma-3" size="100" tile>
+              <v-img :src="videoSug[i].image" />
+            </v-avatar>
+            <div>
+              <v-card-title class="text-h5">
+                {{ videoSug[i].title }}
+              </v-card-title>
+              <div display: style="display: flex; align-items: center; margin-left: 25px;">
+                <v-avatar size="25">
+                  <v-img :src="videoSug[i].channel_img" />
+                </v-avatar>
+                <v-card-subtitle> {{ videoSug[i].chanel_name }} </v-card-subtitle>
+              </div>
+            </div>
+          </div>
+        </v-card>
+      </v-col>
     </v-row>
   </v-row>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 export default {
   data () {
     return {
       videoId: '',
-      video: []
+      video: [],
+      show: false,
+      videoSug: [],
+      videoList: [],
+      randIndex: ''
     }
   },
   computed: {
@@ -62,8 +85,10 @@ export default {
   },
   mounted () {
     this.loadData()
+    this.loadList()
   },
   methods: {
+    ...mapMutations(['setVideoId']),
     async loadData () {
       this.videoId = await this.getVideoID
       console.log('video:', this.videoId)
@@ -80,13 +105,41 @@ export default {
         id: this.videoId
       }
       await this.$axios.post(process.env.APP + '/info', videoRef, config).then(async (res) => {
-        console.log('load Video', await (res))
+        console.log('load video', await (res))
         if (res.data.alert === 'Success') {
           this.video = res.data.data
         }
       }).catch((err) => {
         console.error(err)
       })
+    },
+    async loadList () {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
+      await this.$axios.get(process.env.APP + '/videos', config).then(async (res) => {
+        console.log('Full video list:', await (res))
+        if (res.data.alert === 'Success') {
+          this.videoList = res.data.data
+          this.randomIndex()
+        }
+      }).catch((err) => {
+        console.error(err)
+      })
+    },
+    randomIndex () {
+      for (let i = 0; i < 20; i++) {
+        this.randIndex = Math.floor(Math.random() * this.videoList.length)
+        this.videoSug.push(this.videoList[this.randIndex])
+      }
+      console.log('videoSug list:', this.videoSug)
+    },
+    playVid (videoId) {
+      this.setVideoId(videoId)
+      this.$router.push('/home/player/video')
     }
   }
 }

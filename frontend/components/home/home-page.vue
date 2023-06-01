@@ -337,7 +337,7 @@ export default {
     },
     playVid (videoId) {
       this.setVideoId(videoId)
-      this.$router.push('home/player')
+      this.$router.push('/home/player')
     },
     scrollInto (elementId) {
       const section = document.querySelector(`#${elementId}`)
