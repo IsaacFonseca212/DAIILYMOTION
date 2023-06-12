@@ -85,9 +85,9 @@ export default {
       await this.$axios.post('/login',
         userData,
         config
-      ).then(async (res) => {
+      ).then((res) => {
         // eslint-disable-next-line no-console
-        console.log('login', await (res))
+        // console.log('login', await (res))
         if (res.data.alert === 'Success') {
           this.setUser(userData)
           this.mensaje = ''

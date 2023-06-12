@@ -1,28 +1,29 @@
 <template>
   <div class="principal">
     <topBar />
-    <loginPage />
+    <searchRes />
   </div>
 </template>
 
 <script>
-import topBar from '~/components/topbars/subscribe-bar.vue'
-import loginPage from '~/components/login/login-page.vue'
+import searchRes from '~/components/search/search-page.vue'
+import topBar from '~/components/topbars/navigation-bar.vue'
 export default {
   name: 'IndexPage',
   auth: false,
   components: {
-    loginPage,
+    searchRes,
     topBar
   },
-  layout: 'login'
+  layout: 'search'
 }
 </script>
 
 <style scoped>
   .principal{
     width: 100vw;
-    height: 100vh;
+    height: auto;
+    background-color: #212529;
     font-family: 'Montserrat', sans-serif;
   }
 </style>

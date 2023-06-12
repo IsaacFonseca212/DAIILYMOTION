@@ -5,7 +5,7 @@
         width="700"
         style="margin-bottom: 30px; background-color: #160C30"
       >
-        Standardㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ$179.00/m
+        Standardㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ{{ price }}
       </v-banner>
       <span>
         STEP 2 OF 3
@@ -104,11 +104,12 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   data () {
     return {
+      price: '',
       name: '',
       lastname: '',
       age: '',
@@ -123,6 +124,12 @@ export default {
       ],
       mensaje: ''
     }
+  },
+  computed: {
+    ...mapGetters(['getPrice'])
+  },
+  mounted () {
+    this.price = this.getPrice
   },
   methods: {
     ...mapMutations(['setUser']),
@@ -146,9 +153,9 @@ export default {
         await this.$axios.post('/insert',
           userData,
           config
-        ).then(async (res) => {
+        ).then((res) => {
         // eslint-disable-next-line no-console
-          console.log('insert', await (res))
+          // console.log('insert', await (res))
           if (res.data.alert === 'Success') {
             this.setUser(userData)
             this.mensaje = ''

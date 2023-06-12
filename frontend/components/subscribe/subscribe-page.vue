@@ -33,15 +33,15 @@
             </div>
             <div class="v-card-info">
               <ul>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
+                <li>Unlimited ad-free movies and TV shows</li>
+                <li>1 device at a time</li>
+                <li>2 profile</li>
+                <li>Watch in HD</li>
+                <li>Download on 1 supported device at a time</li>
               </ul>
             </div>
             <div class="v-card-btn">
-              <v-btn class="button">
+              <v-btn class="button" @click="setPlan1">
                 Choose this plan
               </v-btn>
             </div>
@@ -53,7 +53,7 @@
           <v-card elevation="24" outlinedstyle style="background-color: transparent; height: 100%">
             <div class="v-card-title">
               <v-card-title class="card">
-                6 months
+                3 months
               </v-card-title>
             </div>
             <div class="v-card-price">
@@ -63,15 +63,15 @@
             </div>
             <div class="v-card-info">
               <ul>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
+                <li>Unlimited ad-free movies and TV shows</li>
+                <li>3 devices at a time</li>
+                <li>4 profiles</li>
+                <li>Watch in Full HD</li>
+                <li>Download on 3 supported devices at a time</li>
               </ul>
             </div>
             <div class="v-card-btn">
-              <v-btn class="button">
+              <v-btn class="button" @click="setPlan2">
                 Choose this plan
               </v-btn>
             </div>
@@ -93,15 +93,15 @@
             </div>
             <div class="v-card-info">
               <ul>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
-                <li>yo</li>
+                <li>Unlimited ad-free movies and TV shows</li>
+                <li>5 device at a time</li>
+                <li>5 profiles</li>
+                <li>Watch in Ultra HD</li>
+                <li>Download on 5 supported devices at a time</li>
               </ul>
             </div>
             <div class="v-card-btn">
-              <v-btn class="button">
+              <v-btn class="button" @click="setPlan3">
                 Choose this plan
               </v-btn>
             </div>
@@ -122,15 +122,35 @@
   </v-row>
 </template>
 
-<!-- <script>
+<script>
+import { mapMutations } from 'vuex'
+
 export default {
+  data () {
+    return {
+      plan: ''
+    }
+  },
   methods: {
-    loginRed () {
-      this.$router.push('/login')
+    ...mapMutations(['setPrice']),
+    setPlan1 () {
+      this.plan = '$179.00/m'
+      this.setPrice(this.plan)
+      this.$router.push('/subscribe/register')
+    },
+    setPlan2 () {
+      this.plan = '$399.00/3m'
+      this.setPrice(this.plan)
+      this.$router.push('/subscribe/register')
+    },
+    setPlan3 () {
+      this.plan = '$1249.00/12m'
+      this.setPrice(this.plan)
+      this.$router.push('/subscribe/register')
     }
   }
 }
-</script> -->
+</script>
 
   <style scoped>
   .principal{

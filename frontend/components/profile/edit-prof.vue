@@ -164,7 +164,7 @@ export default {
         config
       ).then(async (res) => {
         // eslint-disable-next-line no-console
-        console.log('load', await (res))
+        // console.log('load', await (res))
         if (res.data.alert === 'Success') {
           this.user = res.data.data
           this.fullname = this.user.name + ' ' + this.user.lastname
@@ -197,9 +197,9 @@ export default {
       await this.$axios.post('/update',
         userData,
         config
-      ).then(async (res) => {
+      ).then((res) => {
         // eslint-disable-next-line no-console
-        console.log('update', await (res))
+        // console.log('update', await (res))
         if (res.data.alert === 'Success') {
           this.mensaje = 'User saved succesfully'
           this.loadUserData()
@@ -230,9 +230,9 @@ export default {
       await this.$axios.post('/delete',
         userEmail,
         config
-      ).then(async (res) => {
+      ).then((res) => {
         // eslint-disable-next-line no-console
-        console.log('delete', await (res))
+        // console.log('delete', await (res))
         if (res.data.alert === 'User deleted') {
           this.setUser(emailClear)
           this.$router.push('/')
@@ -268,6 +268,7 @@ export default {
   .row{
     width: 100%;
     justify-content: space-evenly;
+    flex-wrap: nowrap;
     background-color: #212529;
   }
   .mensaje{

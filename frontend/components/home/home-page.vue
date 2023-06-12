@@ -46,13 +46,7 @@
                   <div class="d-flex flex-no-wrap">
                     <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoFt[i].image" />
-                      <h5
-                        style="
-                      position: relative;
-                      top: -40%;
-                      left: -94%;
-                      background-color: black;"
-                      >
+                      <h5 class="header">
                         {{ videoFt[i].duration }}
                       </h5>
                     </v-avatar>
@@ -60,8 +54,8 @@
                       <v-card-title class="text-h5">
                         {{ videoFt[i].title }}
                       </v-card-title>
-                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar class="avatar-size">
+                      <div style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="45">
                           <v-img :src="videoFt[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoFt[i].chanel_name }} </v-card-subtitle>
@@ -90,13 +84,7 @@
                   <div class="d-flex flex-no-wrap">
                     <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoNew[i].image" />
-                      <h5
-                        style="
-                      position: relative;
-                      top: -40%;
-                      left: -94%;
-                      background-color: black;"
-                      >
+                      <h5 class="header">
                         {{ videoNew[i].duration }}
                       </h5>
                     </v-avatar>
@@ -104,8 +92,8 @@
                       <v-card-title class="text-h5">
                         {{ videoNew[i].title }}
                       </v-card-title>
-                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar class="avatar-size">
+                      <div style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="45">
                           <v-img :src="videoNew[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoNew[i].chanel_name }} </v-card-subtitle>
@@ -134,13 +122,7 @@
                   <div class="d-flex flex-no-wrap">
                     <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoSp[i].image" />
-                      <h5
-                        style="
-                      position: relative;
-                      top: -40%;
-                      left: -94%;
-                      background-color: black;"
-                      >
+                      <h5 class="header">
                         {{ videoSp[i].duration }}
                       </h5>
                     </v-avatar>
@@ -148,8 +130,8 @@
                       <v-card-title class="text-h5">
                         {{ videoSp[i].title }}
                       </v-card-title>
-                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar class="avatar-size">
+                      <div style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="45">
                           <v-img :src="videoSp[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoSp[i].chanel_name }} </v-card-subtitle>
@@ -178,13 +160,7 @@
                   <div class="d-flex flex-no-wrap">
                     <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoEnt[i].image" />
-                      <h5
-                        style="
-                      position: relative;
-                      top: -40%;
-                      left: -94%;
-                      background-color: black;"
-                      >
+                      <h5 class="header">
                         {{ videoSp[i].duration }}
                       </h5>
                     </v-avatar>
@@ -192,8 +168,8 @@
                       <v-card-title class="text-h5">
                         {{ videoEnt[i].title }}
                       </v-card-title>
-                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar class="avatar-size">
+                      <div style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="45">
                           <v-img :src="videoEnt[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoEnt[i].chanel_name }} </v-card-subtitle>
@@ -222,13 +198,7 @@
                   <div class="d-flex flex-no-wrap">
                     <v-avatar class="ma-3" style="height: auto; min-width: 400px;width: 400px;" tile>
                       <v-img :src="videoM[i].image" />
-                      <h5
-                        style="
-                      position: relative;
-                      top: -40%;
-                      left: -94%;
-                      background-color: black;"
-                      >
+                      <h5 class="header">
                         {{ videoM[i].duration }}
                       </h5>
                     </v-avatar>
@@ -236,8 +206,8 @@
                       <v-card-title class="text-h5">
                         {{ videoM[i].title }}
                       </v-card-title>
-                      <div display: style="display: flex; align-items: center; margin-left: 25px;">
-                        <v-avatar class="avatar-size">
+                      <div style="display: flex; align-items: center; margin-left: 25px;">
+                        <v-avatar size="45">
                           <v-img :src="videoM[i].channel_img" />
                         </v-avatar>
                         <v-card-subtitle> {{ videoM[i].chanel_name }} </v-card-subtitle>
@@ -314,9 +284,9 @@ export default {
       const Categ = {
         category: this.category
       }
-      await this.$axios.post(process.env.APP + '/category', Categ, config).then(async (res) => {
+      await this.$axios.post(process.env.APP + '/category', Categ, config).then((res) => {
         // eslint-disable-next-line no-console
-        console.log(this.category, await (res))
+        // console.log(this.category, await (res))
         if (res.data.alert === 'Success') {
           if (this.category === 'music') {
             this.videoM = res.data.data
@@ -361,10 +331,13 @@ h2:hover {
   background-color: black;
 }
 
-.avatar-size{
-  height: 25px;
-  min-width: 25px;
-  width: 25px;
+.header {
+  position: relative;
+  top: -40%;
+  left: -94%;
+  background-color: black;
+  padding: 0.18rem;
+  border-radius: 5px;
 }
 
 .nombre-categoria-padre{

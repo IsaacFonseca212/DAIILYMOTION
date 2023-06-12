@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <div class="principal">
+    <v-row class="principal">
       <Nuxt />
-    </div>
+    </v-row>
   </v-app>
 </template>
 
@@ -14,8 +14,8 @@ export default {
 
 <style scoped>
 .principal{
-width: 100%;
-height: 100%;
-
+  width: 100%;
+  height: auto;
+  background-color: #212529;
 }
 </style>

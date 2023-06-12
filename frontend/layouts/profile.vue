@@ -22,8 +22,4 @@ export default {
     align-items: center;
     justify-content: center;
   }
-  .image{
-    background-image: url('~@/assets/images/purple-gradient.jpg');
-    background-attachment: fixed;
-  }
 </style>
