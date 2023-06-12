@@ -23,5 +23,6 @@ export default {
 .principal{
   width: 100vw;
   height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 </style>

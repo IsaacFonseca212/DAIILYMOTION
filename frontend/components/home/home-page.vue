@@ -284,9 +284,9 @@ export default {
       const Categ = {
         category: this.category
       }
-      await this.$axios.post(process.env.APP + '/category', Categ, config).then(async (res) => {
+      await this.$axios.post(process.env.APP + '/category', Categ, config).then((res) => {
         // eslint-disable-next-line no-console
-        console.log(this.category, await (res))
+        // console.log(this.category, await (res))
         if (res.data.alert === 'Success') {
           if (this.category === 'music') {
             this.videoM = res.data.data

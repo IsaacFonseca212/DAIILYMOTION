@@ -3,7 +3,7 @@
     <v-row class="row-player" style="margin: 0">
       <v-row class="reproductor" style="margin: 0">
         <v-card v-if="video" class="mx-auto" min-width="770" max-width="770" style="margin: 0px; margin-top: 15px;">
-          <div style="height: 400px; width: 100%; min-height: 400px">
+          <div style="height: 420px; width: 100%; min-height: 420px">
             <iframe
               class="responsive-iframe"
               width="100%"
@@ -20,7 +20,6 @@
             {{ video.title }}
           </v-card-title>
           <div
-            display:
             style="display: flex;
                    align-items: center;
                    margin-left: 25px;
@@ -67,11 +66,11 @@
             </div>
             <div>
               <v-card-title>
-                <span>
+                <span style="font-size: medium; line-height: initial;">
                   {{ videoSug[i].title }}
                 </span>
               </v-card-title>
-              <div class="d-flex align-content-center" style="margin-left: 25px;">
+              <div class="d-flex" style="align-items: center; margin-left: 25px;">
                 <v-avatar size="25">
                   <v-img :src="videoSug[i].channel_img" />
                 </v-avatar>
@@ -109,7 +108,7 @@ export default {
     ...mapMutations(['setVideoId']),
     async loadData () {
       this.videoId = await this.getVideoID
-      console.log('video:', this.videoId)
+      // console.log('video:', this.videoId)
       await this.loadVideo()
     },
     async loadVideo () {
@@ -122,12 +121,13 @@ export default {
       const videoRef = {
         id: this.videoId
       }
-      await this.$axios.post(process.env.APP + '/info', videoRef, config).then(async (res) => {
-        console.log('load video', await (res))
+      await this.$axios.post(process.env.APP + '/info', videoRef, config).then((res) => {
+        // console.log('load video', await (res))
         if (res.data.alert === 'Success') {
           this.video = res.data.data
         }
       }).catch((err) => {
+        // eslint-disable-next-line no-console
         console.error(err)
       })
     },
@@ -138,13 +138,14 @@ export default {
           'Access-Control-Allow-Origin': '*'
         }
       }
-      await this.$axios.get(process.env.APP + '/videos', config).then(async (res) => {
-        console.log('Full video list:', await (res))
+      await this.$axios.get(process.env.APP + '/videos', config).then((res) => {
+        // console.log('Full video list:', await (res))
         if (res.data.alert === 'Success') {
           this.videoList = res.data.data
           this.randomIndex()
         }
       }).catch((err) => {
+        // eslint-disable-next-line no-console
         console.error(err)
       })
     },
@@ -153,7 +154,7 @@ export default {
         this.randIndex = Math.floor(Math.random() * this.videoList.length)
         this.videoSug.push(this.videoList[this.randIndex])
       }
-      console.log('videoSug list:', this.videoSug)
+      // console.log('videoSug list:', this.videoSug)
     },
     playVid (videoId) {
       this.setVideoId(videoId)
@@ -166,8 +167,10 @@ export default {
 <style scoped>
 .principal{
   width: 100%;
-  height: 100%;
+  height: inherit;
   margin: 0;
+  margin-bottom: 13px!important;
+  background-color: #212529;
 }
 
 .row-player{
@@ -184,7 +187,7 @@ export default {
 .sugeridos{
   width:30%;
   height: 100%;
-  margin-right: 15vh;
+  margin-right: 5vh;
   margin-left: 5px;
 }
 

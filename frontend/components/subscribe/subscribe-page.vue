@@ -41,7 +41,7 @@
               </ul>
             </div>
             <div class="v-card-btn">
-              <v-btn class="button" @click="$router.push('/subscribe/register')">
+              <v-btn class="button" @click="setPlan1">
                 Choose this plan
               </v-btn>
             </div>
@@ -71,7 +71,7 @@
               </ul>
             </div>
             <div class="v-card-btn">
-              <v-btn class="button" @click="$router.push('/subscribe/register')">
+              <v-btn class="button" @click="setPlan2">
                 Choose this plan
               </v-btn>
             </div>
@@ -101,7 +101,7 @@
               </ul>
             </div>
             <div class="v-card-btn">
-              <v-btn class="button" @click="$router.push('/subscribe/register')">
+              <v-btn class="button" @click="setPlan3">
                 Choose this plan
               </v-btn>
             </div>
@@ -122,15 +122,35 @@
   </v-row>
 </template>
 
-<!-- <script>
+<script>
+import { mapMutations } from 'vuex'
+
 export default {
+  data () {
+    return {
+      plan: ''
+    }
+  },
   methods: {
-    loginRed () {
-      this.$router.push('/login')
+    ...mapMutations(['setPrice']),
+    setPlan1 () {
+      this.plan = '$179.00/m'
+      this.setPrice(this.plan)
+      this.$router.push('/subscribe/register')
+    },
+    setPlan2 () {
+      this.plan = '$399.00/3m'
+      this.setPrice(this.plan)
+      this.$router.push('/subscribe/register')
+    },
+    setPlan3 () {
+      this.plan = '$1249.00/12m'
+      this.setPrice(this.plan)
+      this.$router.push('/subscribe/register')
     }
   }
 }
-</script> -->
+</script>
 
   <style scoped>
   .principal{

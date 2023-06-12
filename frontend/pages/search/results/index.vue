@@ -24,5 +24,6 @@ export default {
     width: 100vw;
     height: auto;
     background-color: #212529;
+    font-family: 'Montserrat', sans-serif;
   }
 </style>

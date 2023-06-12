@@ -1,6 +1,6 @@
 <template>
   <div class="principal">
-    <topBar style="margin-top: -12px!important" />
+    <topBar />
     <playerPage />
   </div>
 </template>
@@ -23,5 +23,7 @@ export default {
 .principal{
   width: 100vw;
   height: auto;
+  background-color: #212529;
+  font-family: 'Montserrat', sans-serif;
 }
 </style>

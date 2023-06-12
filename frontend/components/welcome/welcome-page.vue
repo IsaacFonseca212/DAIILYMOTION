@@ -56,6 +56,7 @@ export default {
   margin: 0;
   /* background-color: white; */
   background-color: #02021C;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .bar-col-1{

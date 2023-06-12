@@ -2,7 +2,8 @@
 export const state = () => ({
   user: null,
   videoId: null,
-  searchValue: null
+  searchValue: null,
+  price: null
 })
 
 export const getters = {
@@ -14,6 +15,9 @@ export const getters = {
   },
   getSearchValue (state) {
     return state.searchValue
+  },
+  getPrice (state) {
+    return state.price
   }
 }
 
@@ -26,6 +30,9 @@ export const mutations = {
   },
   setSearchValue (state, searchValue) {
     state.searchValue = searchValue
+  },
+  setPrice (state, price) {
+    state.price = price
   }
 }
 
@@ -38,5 +45,8 @@ export const actions = {
   },
   setSearchValue ({ commit }, searchValue) {
     commit('setSearchValue', searchValue)
+  },
+  setPrice ({ commit }, price) {
+    commit('setPrice', price)
   }
 }

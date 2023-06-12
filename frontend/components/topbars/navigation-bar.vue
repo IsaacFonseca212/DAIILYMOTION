@@ -114,7 +114,7 @@ export default {
         config
       ).then(async (res) => {
         // eslint-disable-next-line no-console
-        console.log('load', await (res))
+        // console.log('load', await (res))
         if (res.data.alert === 'Success') {
           this.user = res.data.data
           this.fullname = this.user.name + ' ' + this.user.lastname
