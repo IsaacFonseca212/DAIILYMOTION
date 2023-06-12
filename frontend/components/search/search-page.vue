@@ -14,7 +14,7 @@
               <v-card-title class="text-h5">
                 {{ video.title }}
               </v-card-title>
-              <div display: style="display: flex; align-items: center; margin-left: 25px;">
+              <div style="display: flex; align-items: center; margin-left: 25px;">
                 <v-avatar size="35">
                   <v-img :src="video.channel_img" />
                 </v-avatar>
