@@ -1,6 +1,6 @@
 <template>
   <div class="principal">
-    <topBar />
+    <topBar style="margin-top: -12px!important" />
     <playerPage />
   </div>
 </template>
