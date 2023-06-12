@@ -268,6 +268,7 @@ export default {
   .row{
     width: 100%;
     justify-content: space-evenly;
+    flex-wrap: nowrap;
     background-color: #212529;
   }
   .mensaje{

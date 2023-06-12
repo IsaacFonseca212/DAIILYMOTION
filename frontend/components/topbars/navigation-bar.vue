@@ -10,6 +10,8 @@
       prepend-icon="mdi-magnify"
       single-line
       placeholder="Search by name"
+      label="Search"
+      clearable
       @keyup.enter="search"
     />
     <v-menu
@@ -82,23 +84,20 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getUser'])
+    ...mapGetters(['getUser']),
+    ...mapGetters(['getSearchValue'])
   },
   mounted () {
     this.loadUser()
+    this.searchval = this.getSearchValue
   },
   methods: {
     ...mapMutations(['setSearchValue']),
     search () {
       // eslint-disable-next-line no-console
-      console.log(this.searchval)
+      // console.log(this.searchval)
       this.setSearchValue(this.searchval)
       this.$router.push('/search')
-
-    // <div v-for="item in 5" :key="item">
-      // {{ item }}
-      // {{ search() }}
-    // </div>
     },
     async loadUser () {
       const config = {

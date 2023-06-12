@@ -6,7 +6,7 @@
 export default {
   auth: false,
   mounted () {
-    this.$router.push('/home/player')
+    this.$router.push('/search/results')
   }
 }
 </script>
