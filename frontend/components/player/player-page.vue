@@ -2,17 +2,20 @@
   <v-row class="principal" style="margin: 0">
     <v-row class="row-player" style="margin: 0">
       <v-row class="reproductor" style="margin: 0">
-        <v-card v-if="video" class="mx-auto" style="margin: 0px; margin-top: 15px; width: 95%!important;">
-          <iframe
-            width="100%"
-            height="95%"
-            :src="video.url"
-            :title="video.title"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-            allowfullscreen
-            sharing-enabled="false"
-          />
+        <v-card v-if="video" class="mx-auto" min-width="770" max-width="770" style="margin: 0px; margin-top: 15px;">
+          <div style="height: 400px; width: 100%; min-height: 400px">
+            <iframe
+              class="responsive-iframe"
+              width="100%"
+              height="100%"
+              :src="video.url"
+              :title="video.title"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+              allowfullscreen
+              sharing-enabled="false"
+            />
+          </div>
           <v-card-title>
             {{ video.title }}
           </v-card-title>
@@ -49,27 +52,26 @@
         </v-card>
       </v-row>
     </v-row>
-    <v-row v-if="videoSug && videoSug.length > 0" class="sugeridos" style="margin: 0">
+    <v-row v-if="videoSug && videoSug.length > 0" class="sugeridos">
       <v-col v-for="i in 19" :key="i" cols="12">
         <v-card @click="playVid(videoSug[i].id)">
-          <div class="d-flex flex-no-wrap justify-space-between">
-            <v-avatar class="ma-3" size="100" tile>
-              <v-img :src="videoSug[i].image" />
-              <h5
-                style="
-                      position: relative;
-                      top: -40%;
-                      left: -80%;
-                      background-color: black;"
-              >
+          <div class="d-flex flex-no-wrap">
+            <div class="ma-3" style="object-fit: cover; height: auto; width: 30%;">
+              <v-img
+                :src="videoSug[i].image"
+                style="height: 100%; width: 100%; object-fit: cover;"
+              />
+              <h5 class="duration">
                 {{ videoSug[i].duration }}
               </h5>
-            </v-avatar>
+            </div>
             <div>
-              <v-card-title class="text-h5">
-                {{ videoSug[i].title }}
+              <v-card-title>
+                <span>
+                  {{ videoSug[i].title }}
+                </span>
               </v-card-title>
-              <div display: style="display: flex; align-items: center; margin-left: 25px;">
+              <div class="d-flex align-content-center" style="margin-left: 25px;">
                 <v-avatar size="25">
                   <v-img :src="videoSug[i].channel_img" />
                 </v-avatar>
@@ -165,24 +167,40 @@ export default {
 .principal{
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
 .row-player{
-  width: 70%;
+  width: 50%;
   height: 100%;
+  margin-left: 10vh!important;
 }
 .reproductor{
   width: 100%;
   height: 75%;
-  margin-top: 15px;
+  margin-top: 10px!important;
 }
 
 .sugeridos{
   width:30%;
   height: 100%;
+  margin-right: 15vh;
+  margin-left: 5px;
 }
 
 * {
   word-break: normal
+}
+
+.duration{
+  padding: 0.18rem;
+  border-radius: 5px;
+  position: relative;
+  bottom: 97%;
+  left: 5%;
+  background-color: black;
+  width: 35%;
+  display: flex;
+  justify-content: center;
 }
 </style>
