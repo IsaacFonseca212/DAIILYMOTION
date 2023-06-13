@@ -328,7 +328,7 @@ export default {
 
 h2:hover {
   cursor: pointer;
-  background-color: black;
+  text-decoration: underline;
 }
 
 .header {
